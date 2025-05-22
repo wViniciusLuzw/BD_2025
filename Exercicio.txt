@@ -1,4 +1,4 @@
-SELECTs Simples (iniciantes)
+--------------------------------------------------------------------------------------------------------------------------------------------------------SELECTs Simples (iniciantes)
 
 1. Mostrar todos os produtos: 
  SELECT * FROM produtos;
@@ -41,6 +41,7 @@ MariaDB [etecmcm2]> select * from itens
 +------------+--------------------------------+--------+-------+----------------+--------------+----------------+
 30 rows in set (0.001 sec)
 
+ 
 2. Mostrar nome e preço dos produtos:  
 SELECT nome, preco FROM produtos;
 
@@ -82,6 +83,7 @@ MariaDB [etecmcm2]> select nome, preco from itens
 +--------------------------------+--------+
 30 rows in set (0.001 sec)
 
+
 3. Mostrar todos os produtos da marca "Sadia" ou a "que quiser":  
 SELECT * FROM produtos WHERE marca = 'Sadia';
 
@@ -98,4 +100,288 @@ MariaDB [etecmcm2]> select * from itens where marca = "FRESH"
 +------------+---------+-------+-------+-------+--------------+----------------+
 5 rows in set (0.001 sec)
 
-MariaDB [etecmcm2]>
+
+4. Mostrar produtos com preço maior que 20 reais:  
+SELECT * FROM produtos WHERE preco > 20;
+
+MariaDB [etecmcm2]> select * from itens where preco > 20
+    -> ;
++------------+--------------------------+--------+-------+-----------+--------------+----------------+
+| id_produto | nome                     | preco  | quant | marca     | id_categoria | unidade_medida |
++------------+--------------------------+--------+-------+-----------+--------------+----------------+
+|          1 | Sabão em pó              |  20.99 |     2 | OMO       |            1 | Kg             |
+|          6 | Sabonete Líquido         |  20.79 |   650 | Protex    |            2 | ml             |
+|          7 | Shampoo                  | 203.00 |   250 | Kérastase |            2 | ml             |
+|          8 | Condicionador            |  27.49 |   650 | TRESemmé  |            2 | ml             |
+|          9 | Lâmina de barbear        |  32.00 |     8 | Gillette  |            2 | un             |
+|         10 | Creme Depilatório        |  55.39 |   150 | Veet      |            2 | g              |
+|         11 | Manteiga                 |  25.49 |   500 | Tirol     |            3 | g              |
+|         13 | Queijo Mussarela Fatiado |  33.99 |   400 | Ipanema   |            3 | g              |
+|         16 | Picanha Nobre            | 109.98 |     1 | Swift     |            4 | Kg             |
+|         19 | Cupim Bovino             |  39.90 |     1 | Swift     |            4 | Kg             |
+|         22 | Feijoada Pronta          |  23.99 |   830 | Oderich   |            5 | g              |
+|         29 | Pera                     |  21.98 |     1 | FRESH     |            7 | Kg             |
++------------+--------------------------+--------+-------+-----------+--------------+----------------+
+12 rows in set (0.001 sec)
+
+
+5. Mostrar produtos com quantidade menor ou igual a 60:  
+SELECT * FROM produtos WHERE quant <= 60;
+
+MariaDB [etecmcm2]> select * from itens where quant <= 60
+    -> ;
++------------+-------------------+--------+-------+--------------+--------------+----------------+
+| id_produto | nome              | preco  | quant | marca        | id_categoria | unidade_medida |
++------------+-------------------+--------+-------+--------------+--------------+----------------+
+|          1 | Sabão em pó       |  20.99 |     2 | OMO          |            1 | Kg             |
+|          3 | Esponja multiuso  |  14.09 |    10 | Scotch Brite |            1 | un             |
+|          4 | Água sanitária    |   9.96 |     5 | Ypê          |            1 | l              |
+|          9 | Lâmina de barbear |  32.00 |     8 | Gillette     |            2 | un             |
+|         12 | Leite Integral    |   4.99 |     1 | Parmalat     |            3 | l              |
+|         16 | Picanha Nobre     | 109.98 |     1 | Swift        |            4 | Kg             |
+|         17 | Linguiça Toscana  |  14.95 |     1 | Sadia        |            4 | Kg             |
+|         18 | Peito de Frango   |  13.99 |     1 | Lar          |            4 | Kg             |
+|         19 | Cupim Bovino      |  39.90 |     1 | Swift        |            4 | Kg             |
+|         20 | Barriga Suína     |  11.25 |     1 | Coop         |            4 | Kg             |
+|         26 | Tomate            |  10.98 |     1 | FRESH        |            7 | Kg             |
+|         27 | Abacaxi           |   9.95 |     1 | FRESH        |            7 | Kg             |
+|         28 | Maçã              |  11.98 |     1 | FRESH        |            7 | Kg             |
+|         29 | Pera              |  21.98 |     1 | FRESH        |            7 | Kg             |
+|         30 | Abacate           |   3.64 |     1 | FRESH        |            7 | Kg             |
++------------+-------------------+--------+-------+--------------+--------------+----------------+
+15 rows in set (0.001 sec)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------SELECTs com ORDER BY e LIMIT 
+
+6. Mostrar os 5 produtos mais baratos: 
+SELECT nome, preco FROM produtos ORDER BY preco ASC LIMIT 5;
+
+MariaDB [etecmcm2]> select nome, preco from itens order by preco asc limit 5
+    -> ;
++--------------------------------+-------+
+| nome                           | preco |
++--------------------------------+-------+
+| Milho Crocante Cozido ao Vapor |  2.49 |
+| Detergente                     |  2.83 |
+| Iogurte Morango                |  3.49 |
+| Abacate                        |  3.64 |
+| Iorgute Integral Natural       |  3.79 |
++--------------------------------+-------+
+5 rows in set (0.000 sec)
+
+
+7. Mostrar os 5 produtos mais caros: 
+SELECT nome, preco FROM produtos ORDER BY preco DESC LIMIT 5;
+
+MariaDB [etecmcm2]> select nome, preco from itens order by preco desc limit 5
+    -> ;
++--------------------------+--------+
+| nome                     | preco  |
++--------------------------+--------+
+| Shampoo                  | 203.00 |
+| Picanha Nobre            | 109.98 |
+| Creme Depilatório        |  55.39 |
+| Cupim Bovino             |  39.90 |
+| Queijo Mussarela Fatiado |  33.99 |
++--------------------------+--------+
+5 rows in set (0.000 sec)
+
+
+-----------------------------------------------------------------------------------------------------------------------SELECTs com funções agregadas 
+
+8. Contar o total de produtos cadastrados: 
+SELECT COUNT(*) AS total_produtos FROM produtos; 
+
+MariaDB [etecmcm2]> select count(*) as total_produtos from itens
+    -> ;
++----------------+
+| total_produtos |
++----------------+
+|             30 |
++----------------+
+1 row in set (0.000 sec)
+
+
+9. Mostrar o preço médio dos produtos: 
+SELECT AVG(preco) AS preco_medio FROM produtos;
+
+MariaDB [etecmcm2]> select avg(preco) as preco_medio from itens
+    -> ;
++-------------+
+| preco_medio |
++-------------+
+|   26.276000 |
++-------------+
+1 row in set (0.001 sec)
+
+
+10. Mostrar o produto com maior quantidade em estoque:
+SELECT nome, quant FROM produtos ORDER BY quant DESC LIMIT 1;
+
+MariaDB [etecmcm2]> select nome, quant from itens order by quant desc limit 1
+    -> ;
++-----------------+-------+
+| nome            | quant |
++-----------------+-------+
+| Feijoada Pronta |   830 |
++-----------------+-------+
+1 row in set (0.000 sec)
+
+
+SELECTs com JOIN
+
+11. Mostrar nome do produto e nome da categoria (usando JOIN):
+SELECT p.nome, c.nome_cat FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria;
+
+MariaDB [etecmcm2]> select p.nome, c.nome_cat from itens p join categorias c on p.id_categoria = c.id_categoria
+    -> ;
++--------------------------------+------------+
+| nome                           | nome_cat   |
++--------------------------------+------------+
+| Sabão em pó                    | Limpeza    |
+| Detergente                     | Limpeza    |
+| Esponja multiuso               | Limpeza    |
+| Água sanitária                 | Limpeza    |
+| Limpador Sanitário Gel         | Limpeza    |
+| Sabonete Líquido               | Higiene    |
+| Shampoo                        | Higiene    |
+| Condicionador                  | Higiene    |
+| Lâmina de barbear              | Higiene    |
+| Creme Depilatório              | Higiene    |
+| Manteiga                       | Laticínios |
+| Leite Integral                 | Laticínios |
+| Queijo Mussarela Fatiado       | Laticínios |
+| Iorgute Integral Natural       | Laticínios |
+| Iogurte Morango                | Laticínios |
+| Picanha Nobre                  | Frios      |
+| Linguiça Toscana               | Frios      |
+| Peito de Frango                | Frios      |
+| Cupim Bovino                   | Frios      |
+| Barriga Suína                  | Frios      |
+| Ameixa em Calda                | Enlatados  |
+| Feijoada Pronta                | Enlatados  |
+| Carne Bovina em Conserva       | Enlatados  |
+| Milho Crocante Cozido ao Vapor | Enlatados  |
+| Atum em Pedaços ao Óleo        | Enlatados  |
+| Tomate                         | Hortifruti |
+| Abacaxi                        | Hortifruti |
+| Maçã                           | Hortifruti |
+| Pera                           | Hortifruti |
+| Abacate                        | Hortifruti |
++--------------------------------+------------+
+30 rows in set (0.001 sec)
+
+
+12. Mostrar todos os produtos da categoria "Laticínios":
+SELECT p.nome, p.marca, p.preco FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria WHERE c.nome_cat = 'Laticínios';
+
+MariaDB [etecmcm2]> select p.nome, p.marca, p.preco from itens p join categorias c on p.id_categoria = c.id_categoria
+    -> where c.nome_cat = 'Laticínios'
+    -> ;
++--------------------------+----------+-------+
+| nome                     | marca    | preco |
++--------------------------+----------+-------+
+| Manteiga                 | Tirol    | 25.49 |
+| Leite Integral           | Parmalat |  4.99 |
+| Queijo Mussarela Fatiado | Ipanema  | 33.99 |
+| Iorgute Integral Natural | Nestlé   |  3.79 |
+| Iogurte Morango          | Danone   |  3.49 |
++--------------------------+----------+-------+
+5 rows in set (0.001 sec)
+
+
+13. Mostrar total de produtos por categoria:
+SELECT c.nome_cat, COUNT(*) AS total_produtos FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria GROUP BY c.nome_cat;
+
+ MariaDB [etecmcm2]> select c.nome_cat, count(*) as total_produtos from itens p join categorias c on p.id_categoria
+    -> group by c.nome_cat
+    -> ;
++------------+----------------+
+| nome_cat   | total_produtos |
++------------+----------------+
+| Enlatados  |             30 |
+| Frios      |             30 |
+| Higiene    |             30 |
+| Hortifruti |             30 |
+| Laticínios |             30 |
+| Limpeza    |             30 |
++------------+----------------+
+6 rows in set (0.001 sec)
+
+
+-----------------------------------------------------------------------------------------------------------------------Desafios (intermediário)
+
+14. Mostrar os produtos com preço entre 10 e 20 reais:
+SELECT * FROM produtos
+WHERE preco BETWEEN 10 AND 20;
+
+MariaDB [etecmcm2]> select * from itens
+    -> where preco between 10 and 20
+    -> ;
++------------+-------------------------+-------+-------+----------------+--------------+----------------+
+| id_produto | nome                    | preco | quant | marca          | id_categoria | unidade_medida |
++------------+-------------------------+-------+-------+----------------+--------------+----------------+
+|          3 | Esponja multiuso        | 14.09 |    10 | Scotch Brite   |            1 | un             |
+|          5 | Limpador Sanitário Gel  | 16.56 |   750 | Pato           |            1 | ml             |
+|         17 | Linguiça Toscana        | 14.95 |     1 | Sadia          |            4 | Kg             |
+|         18 | Peito de Frango         | 13.99 |     1 | Lar            |            4 | Kg             |
+|         20 | Barriga Suína           | 11.25 |     1 | Coop           |            4 | Kg             |
+|         21 | Ameixa em Calda         | 17.49 |   150 | Oderich        |            5 | g              |
+|         25 | Atum em Pedaços ao Óleo | 11.87 |   170 | Gomes da Costa |            5 | g              |
+|         26 | Tomate                  | 10.98 |     1 | FRESH          |            7 | Kg             |
+|         28 | Maçã                    | 11.98 |     1 | FRESH          |            7 | Kg             |
++------------+-------------------------+-------+-------+----------------+--------------+----------------+
+9 rows in set (0.001 sec)
+
+
+15. Mostrar produtos cujo nome começa com 'P':
+SELECT * FROM produtos
+WHERE nome LIKE 'P%';
+SELECT * FROM produtos WHERE nome LIKE 'P%'; 
+
+MariaDB [etecmcm2]> select * from itens where nome like 'P%'
+    -> ;
++------------+-----------------+--------+-------+-------+--------------+----------------+
+| id_produto | nome            | preco  | quant | marca | id_categoria | unidade_medida |
++------------+-----------------+--------+-------+-------+--------------+----------------+
+|         16 | Picanha Nobre   | 109.98 |     1 | Swift |            4 | Kg             |
+|         18 | Peito de Frango |  13.99 |     1 | Lar   |            4 | Kg             |
+|         29 | Pera            |  21.98 |     1 | FRESH |            7 | Kg             |
++------------+-----------------+--------+-------+-------+--------------+----------------+
+3 rows in set (0.000 sec)
+
+
+16. Mostrar as marcas distintas cadastradas:
+SELECT DISTINCT marca FROM produtos;
+
+MariaDB [etecmcm2]> select distinct marca from itens
+    -> ;
++----------------+
+| marca          |
++----------------+
+| OMO            |
+| Ypê            |
+| Scotch Brite   |
+| Pato           |
+| Protex         |
+| Kérastase      |
+| TRESemmé       |
+| Gillette       |
+| Veet           |
+| Tirol          |
+| Parmalat       |
+| Ipanema        |
+| Nestlé         |
+| Danone         |
+| Swift          |
+| Sadia          |
+| Lar            |
+| Coop           |
+| Oderich        |
+| Anglo          |
+| Fugini         |
+| Gomes da Costa |
+| FRESH          |
++----------------+
+23 rows in set (0.000 sec)
