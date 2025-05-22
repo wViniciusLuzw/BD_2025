@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Maio-2025 às 13:28
+-- Tempo de geração: 22-Maio-2025 às 14:07
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -76,27 +76,27 @@ INSERT INTO `itens` (`id_produto`, `nome`, `preco`, `quant`, `marca`, `id_catego
 (7, 'Shampoo', '203.00', 250, 'Kérastase', 2, 'ml'),
 (8, 'Condicionador', '27.49', 650, 'TRESemmé', 2, 'ml'),
 (9, 'Lâmina de barbear', '32.00', 8, 'Gillette', 2, 'un'),
-(10, 'Creme Depilatório', '37.69', 3, 'Veet', 2, 'g'),
-(11, 'Manteiga', '21.49', 1, 'Tirol', 3, 'g'),
-(12, 'Leite', '79.90', 12, 'Tirol', 3, 'l'),
-(13, 'Queijo Mussarela', '29.99', 1, 'Ipanema', 3, 'g'),
-(14, 'Iogurte Natural', '3.79', 1, 'Nestlé', 3, 'g'),
-(15, 'Iogurte Morango', '3.49', 1, 'Danone', 3, 'g'),
+(10, 'Creme Depilatório', '55.39', 150, 'Veet', 2, 'g'),
+(11, 'Manteiga', '25.49', 500, 'Tirol', 3, 'g'),
+(12, 'Leite Integral', '4.99', 1, 'Parmalat', 3, 'l'),
+(13, 'Queijo Mussarela Fatiado', '33.99', 400, 'Ipanema', 3, 'g'),
+(14, 'Iorgute Integral Natural', '3.79', 170, 'Nestlé', 3, 'g'),
+(15, 'Iogurte Morango', '3.49', 170, 'Danone', 3, 'g'),
 (16, 'Picanha Nobre', '109.98', 1, 'Swift', 4, 'Kg'),
 (17, 'Linguiça Toscana', '14.95', 1, 'Sadia', 4, 'Kg'),
 (18, 'Peito de Frango', '13.99', 1, 'Lar', 4, 'Kg'),
 (19, 'Cupim Bovino', '39.90', 1, 'Swift', 4, 'Kg'),
 (20, 'Barriga Suína', '11.25', 1, 'Coop', 4, 'Kg'),
-(21, 'Ameixa em Calda', '7.69', 1, 'Oderich', 5, 'g'),
-(22, 'Feijoada Lata', '10.69', 1, 'Oderich', 5, 'g'),
-(23, 'Carne Bovina em Conserva', '12.95', 1, 'Anglo', 5, 'g'),
-(24, 'Milho ao Vapor', '14.50', 1, 'Bonduelle', 5, 'g'),
-(25, 'Atum em Pedaços', '10.79', 1, 'Gomes da Costa', 5, 'g'),
-(26, 'Tomate', '1.56', 1, 'FRESH', 7, 'Kg'),
-(27, 'Abacaxi', '6.99', 1, 'FRESH', 7, 'Kg'),
-(28, 'Maça', '0.99', 1, 'FRESH', 7, 'Kg'),
-(29, 'Pera', '1.00', 1, 'FRESH', 7, 'Kg'),
-(30, 'Abacate', '1.99', 1, 'FRESH', 7, 'Kg');
+(21, 'Ameixa em Calda', '17.49', 150, 'Oderich', 5, 'g'),
+(22, 'Feijoada Pronta', '23.99', 830, 'Oderich', 5, 'g'),
+(23, 'Carne Bovina em Conserva', '8.99', 320, 'Anglo', 5, 'g'),
+(24, 'Milho Crocante Cozido ao Vapor', '2.49', 170, 'Fugini', 5, 'g'),
+(25, 'Atum em Pedaços ao Óleo', '11.87', 170, 'Gomes da Costa', 5, 'g'),
+(26, 'Tomate', '10.98', 1, 'FRESH', 7, 'Kg'),
+(27, 'Abacaxi', '9.95', 1, 'FRESH', 7, 'Kg'),
+(28, 'Maçã', '11.98', 1, 'FRESH', 7, 'Kg'),
+(29, 'Pera', '21.98', 1, 'FRESH', 7, 'Kg'),
+(30, 'Abacate', '3.64', 1, 'FRESH', 7, 'Kg');
 
 --
 -- Índices para tabelas despejadas
