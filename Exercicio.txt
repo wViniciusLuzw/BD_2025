@@ -1,0 +1,101 @@
+SELECTs Simples (iniciantes)
+
+1. Mostrar todos os produtos: 
+ SELECT * FROM produtos;
+
+MariaDB [etecmcm2]> select * from itens
+    -> ;
++------------+--------------------------------+--------+-------+----------------+--------------+----------------+
+| id_produto | nome                           | preco  | quant | marca          | id_categoria | unidade_medida |
++------------+--------------------------------+--------+-------+----------------+--------------+----------------+
+|          1 | Sabão em pó                    |  20.99 |     2 | OMO            |            1 | Kg             |
+|          2 | Detergente                     |   2.83 |   500 | Ypê            |            1 | ml             |
+|          3 | Esponja multiuso               |  14.09 |    10 | Scotch Brite   |            1 | un             |
+|          4 | Água sanitária                 |   9.96 |     5 | Ypê            |            1 | l              |
+|          5 | Limpador Sanitário Gel         |  16.56 |   750 | Pato           |            1 | ml             |
+|          6 | Sabonete Líquido               |  20.79 |   650 | Protex         |            2 | ml             |
+|          7 | Shampoo                        | 203.00 |   250 | Kérastase      |            2 | ml             |
+|          8 | Condicionador                  |  27.49 |   650 | TRESemmé       |            2 | ml             |
+|          9 | Lâmina de barbear              |  32.00 |     8 | Gillette       |            2 | un             |
+|         10 | Creme Depilatório              |  55.39 |   150 | Veet           |            2 | g              |
+|         11 | Manteiga                       |  25.49 |   500 | Tirol          |            3 | g              |
+|         12 | Leite Integral                 |   4.99 |     1 | Parmalat       |            3 | l              |
+|         13 | Queijo Mussarela Fatiado       |  33.99 |   400 | Ipanema        |            3 | g              |
+|         14 | Iorgute Integral Natural       |   3.79 |   170 | Nestlé         |            3 | g              |
+|         15 | Iogurte Morango                |   3.49 |   170 | Danone         |            3 | g              |
+|         16 | Picanha Nobre                  | 109.98 |     1 | Swift          |            4 | Kg             |
+|         17 | Linguiça Toscana               |  14.95 |     1 | Sadia          |            4 | Kg             |
+|         18 | Peito de Frango                |  13.99 |     1 | Lar            |            4 | Kg             |
+|         19 | Cupim Bovino                   |  39.90 |     1 | Swift          |            4 | Kg             |
+|         20 | Barriga Suína                  |  11.25 |     1 | Coop           |            4 | Kg             |
+|         21 | Ameixa em Calda                |  17.49 |   150 | Oderich        |            5 | g              |
+|         22 | Feijoada Pronta                |  23.99 |   830 | Oderich        |            5 | g              |
+|         23 | Carne Bovina em Conserva       |   8.99 |   320 | Anglo          |            5 | g              |
+|         24 | Milho Crocante Cozido ao Vapor |   2.49 |   170 | Fugini         |            5 | g              |
+|         25 | Atum em Pedaços ao Óleo        |  11.87 |   170 | Gomes da Costa |            5 | g              |
+|         26 | Tomate                         |  10.98 |     1 | FRESH          |            7 | Kg             |
+|         27 | Abacaxi                        |   9.95 |     1 | FRESH          |            7 | Kg             |
+|         28 | Maçã                           |  11.98 |     1 | FRESH          |            7 | Kg             |
+|         29 | Pera                           |  21.98 |     1 | FRESH          |            7 | Kg             |
+|         30 | Abacate                        |   3.64 |     1 | FRESH          |            7 | Kg             |
++------------+--------------------------------+--------+-------+----------------+--------------+----------------+
+30 rows in set (0.001 sec)
+
+2. Mostrar nome e preço dos produtos:  
+SELECT nome, preco FROM produtos;
+
+MariaDB [etecmcm2]> select nome, preco from itens
+    -> ;
++--------------------------------+--------+
+| nome                           | preco  |
++--------------------------------+--------+
+| Sabão em pó                    |  20.99 |
+| Detergente                     |   2.83 |
+| Esponja multiuso               |  14.09 |
+| Água sanitária                 |   9.96 |
+| Limpador Sanitário Gel         |  16.56 |
+| Sabonete Líquido               |  20.79 |
+| Shampoo                        | 203.00 |
+| Condicionador                  |  27.49 |
+| Lâmina de barbear              |  32.00 |
+| Creme Depilatório              |  55.39 |
+| Manteiga                       |  25.49 |
+| Leite Integral                 |   4.99 |
+| Queijo Mussarela Fatiado       |  33.99 |
+| Iorgute Integral Natural       |   3.79 |
+| Iogurte Morango                |   3.49 |
+| Picanha Nobre                  | 109.98 |
+| Linguiça Toscana               |  14.95 |
+| Peito de Frango                |  13.99 |
+| Cupim Bovino                   |  39.90 |
+| Barriga Suína                  |  11.25 |
+| Ameixa em Calda                |  17.49 |
+| Feijoada Pronta                |  23.99 |
+| Carne Bovina em Conserva       |   8.99 |
+| Milho Crocante Cozido ao Vapor |   2.49 |
+| Atum em Pedaços ao Óleo        |  11.87 |
+| Tomate                         |  10.98 |
+| Abacaxi                        |   9.95 |
+| Maçã                           |  11.98 |
+| Pera                           |  21.98 |
+| Abacate                        |   3.64 |
++--------------------------------+--------+
+30 rows in set (0.001 sec)
+
+3. Mostrar todos os produtos da marca "Sadia" ou a "que quiser":  
+SELECT * FROM produtos WHERE marca = 'Sadia';
+
+MariaDB [etecmcm2]> select * from itens where marca = "FRESH"
+    -> ;
++------------+---------+-------+-------+-------+--------------+----------------+
+| id_produto | nome    | preco | quant | marca | id_categoria | unidade_medida |
++------------+---------+-------+-------+-------+--------------+----------------+
+|         26 | Tomate  | 10.98 |     1 | FRESH |            7 | Kg             |
+|         27 | Abacaxi |  9.95 |     1 | FRESH |            7 | Kg             |
+|         28 | Maçã    | 11.98 |     1 | FRESH |            7 | Kg             |
+|         29 | Pera    | 21.98 |     1 | FRESH |            7 | Kg             |
+|         30 | Abacate |  3.64 |     1 | FRESH |            7 | Kg             |
++------------+---------+-------+-------+-------+--------------+----------------+
+5 rows in set (0.001 sec)
+
+MariaDB [etecmcm2]>
